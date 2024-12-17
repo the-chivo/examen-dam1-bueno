@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P1</title>
+</head>
+<body>
+    <script>
+        let contador = 0;
+
+        
+        function actualizarContador() {
+            document.getElementById("contador").innerText = contador;
+            
+            
+            if (contador < 5) {
+                document.getElementById("contador").style.color = "blue"; 
+            } else if (contador >= 5 && contador <= 7) {
+                document.getElementById("contador").style.color = "yellow"; 
+            } else {
+                document.getElementById("contador").style.color = "red"; 
+            }
+        }
+
+        
+        function sumar() {
+            if (contador < 10) {
+                contador++;
+            }
+            actualizarContador();
+        }
+
+        
+        function restar() {
+            if (contador > 0) {
+                contador--;
+            }
+            actualizarContador();
+        }
+
+        
+        actualizarContador();
+    </script>
+    
+    <button onclick="restar()">-</button>
+    <p id="contador"></p>
+    <button onclick="sumar()">+</button>
+</body>
+</html>
+

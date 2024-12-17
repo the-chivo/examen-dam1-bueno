@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Aritméticas</title>
+</head>
+<body>
+    <h2>Operaciones Aritméticas</h2>
+
+    <!-- Rango 1 -->
+    <label for="range1">Valor 1:</label>
+    <input type="range" id="range1" min="0" max="100" value="0">
+    <p id="valorRange1">Valor 1: 0</p>
+
+    <!-- Rango 2 -->
+    <label for="range2">Valor 2:</label>
+    <input type="range" id="range2" min="0" max="100" value="0">
+    <p id="valorRange2">Valor 2: 0</p>
+
+    <!-- Resultados de las operaciones -->
+    <h3>Resultados</h3>
+    <p id="suma">Suma: 0</p>
+    <p id="resta">Resta: 0</p>
+    <p id="multiplicacion">Multiplicación: 0</p>
+    <p id="division">División: No definida</p>
+
+    <script>
+        // Obtener los elementos del DOM
+        const range1 = document.getElementById('range1');
+        const range2 = document.getElementById('range2');
+        const valorRange1 = document.getElementById('valorRange1');
+        const valorRange2 = document.getElementById('valorRange2');
+        const suma = document.getElementById('suma');
+        const resta = document.getElementById('resta');
+        const multiplicacion = document.getElementById('multiplicacion');
+        const division = document.getElementById('division');
+
+        // Función para actualizar los valores y resultados
+        function actualizar() {
+            // Obtener los valores de los rangos
+            const valor1 = parseInt(range1.value);
+            const valor2 = parseInt(range2.value);
+
+            // Actualizar los valores mostrados
+            valorRange1.textContent = `Valor 1: ${valor1}`;
+            valorRange2.textContent = `Valor 2: ${valor2}`;
+
+            // Calcular los resultados
+            suma.textContent = `Suma: ${valor1 + valor2}`;
+            resta.textContent = `Resta: ${valor1 - valor2}`;
+            multiplicacion.textContent = `Multiplicación: ${valor1 * valor2}`;
+
+            // Evitar división por cero
+            if (valor2 !== 0) {
+                division.textContent = `División: ${valor1 / valor2}`;
+            } else {
+                division.textContent = `División: No definida (división por cero)`;
+            }
+        }
+
+        // Agregar un evento para que se actualice cuando se mueva cualquiera de los rangos
+        range1.addEventListener('input', actualizar);
+        range2.addEventListener('input', actualizar);
+
+        // Inicializar la página con los valores actuales
+        actualizar();
+    </script>
+</body>
+</html>
