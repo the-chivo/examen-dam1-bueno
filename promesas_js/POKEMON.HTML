@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+    <li></li>
+    <script>
+        
+        const lista = document.querySelector("ul")
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        .then(data => data.json())
+        .then(pokemons => {
+            const listaPokemons = pokemons.results
+            for (let i = 0; i < 150; i++){
+                console.log(pokemons)
+                const nombrePokemon = listaPokemons[i].name
+                const elementoNombre = document.createElement("li")
+                console.log(pokemons)
+                elementoNombre.innerText = nombrePokemon
+                lista.appendChild(elementoNombre)
+                const url = listaPokemons[i].url
+                console.log(url)
+                fetch(url)
+                .then(data => data.json())
+                .then(pokemon => {
+                    const sprites = pokemon.sprites
+                    const sprite = sprite.front_default
+                    console.log(sprite)
+                    const spriteElement = document.createElement("img")
+                    spriteElement.src = sprite
+                    lista.appendChild(spriteElement)
+                })
+            }   
+        })
+
+        
+
+    </script>
+</body>
+</html>

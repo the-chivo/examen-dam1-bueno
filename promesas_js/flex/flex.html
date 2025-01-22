@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 10px;
+            border-color: black;
+        }
+        .rojo{
+            background: red;
+        }
+        .naranja{
+            background: orange;
+        }
+        .rosa{
+            background: pink;
+        }
+        .azul{
+            background: lightblue;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class = "rojo"></div>
+    <script>
+        for(let i = 0; i < 3; i++){
+            const div = document.createElement("div")
+            div.className = "rojo"
+            document.body.appendChild(div)
+        }
+    </script>
+</body>
+</html>
